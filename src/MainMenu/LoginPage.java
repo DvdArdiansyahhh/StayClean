@@ -7,6 +7,7 @@ package MainMenu;
 
 import koneksi.Connect;
 import com.mysql.cj.jdbc.Driver;
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -36,24 +37,23 @@ public class LoginPage extends javax.swing.JFrame {
         txt_password = new javax.swing.JTextField();
         btn_login = new javax.swing.JLabel();
         btn_lupaPass = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btn_register = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_username.setBackground(new java.awt.Color(217, 217, 217));
         txt_username.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txt_username.setForeground(new java.awt.Color(0, 0, 0));
         txt_username.setBorder(null);
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 300, 30));
+        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 300, 40));
 
         txt_password.setBackground(new java.awt.Color(217, 217, 217));
         txt_password.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txt_password.setForeground(new java.awt.Color(0, 0, 0));
         txt_password.setBorder(null);
-        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 300, 30));
+        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 300, 40));
 
         btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         btn_login.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,26 +65,23 @@ public class LoginPage extends javax.swing.JFrame {
                 btn_loginMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 538, 340, 50));
+        getContentPane().add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 340, 40));
 
         btn_lupaPass.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         btn_lupaPass.setForeground(new java.awt.Color(0, 0, 0));
         btn_lupaPass.setText("Lupa Password ?");
         btn_lupaPass.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btn_lupaPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+        btn_lupaPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_lupaPassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_lupaPassMouseExited(evt);
+            }
+        });
+        getContentPane().add(btn_lupaPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, 70));
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Belum punya akun ?");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 600, -1, -1));
-
-        btn_register.setFont(new java.awt.Font("Poppins Medium", 0, 13)); // NOI18N
-        btn_register.setForeground(new java.awt.Color(100, 227, 235));
-        btn_register.setText("Register");
-        btn_register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(btn_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, -1, -1));
-
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/Login Page.jpg"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/layout/Login Page.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -97,7 +94,7 @@ public class LoginPage extends javax.swing.JFrame {
         
         try {
             Connection conn = Connect.GetConnection();
-            String sql = "SELECT * FROM akun WHERE username = "+username+" AND PASSWORD = "+password+"";
+            String sql = "SELECT * FROM akun WHERE username = '"+username+"' AND PASSWORD = '"+password+"'";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet res = pst.executeQuery(sql);
             
@@ -116,8 +113,15 @@ public class LoginPage extends javax.swing.JFrame {
             System.out.println(password);
             System.out.println(e.getMessage());
         }
-        
     }//GEN-LAST:event_btn_loginMouseClicked
+
+    private void btn_lupaPassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lupaPassMouseEntered
+        btn_lupaPass.setForeground(Color.blue);
+    }//GEN-LAST:event_btn_lupaPassMouseEntered
+
+    private void btn_lupaPassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lupaPassMouseExited
+        btn_lupaPass.setForeground(Color.black);
+    }//GEN-LAST:event_btn_lupaPassMouseExited
 
     /**
      * @param args the command line arguments
@@ -159,8 +163,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel background;
     private javax.swing.JLabel btn_login;
     private javax.swing.JLabel btn_lupaPass;
-    private javax.swing.JLabel btn_register;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txt_password;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
