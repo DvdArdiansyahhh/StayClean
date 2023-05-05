@@ -7,8 +7,11 @@ package MainMenu;
 
 import koneksi.Connect;
 import com.mysql.cj.jdbc.Driver;
+import com.sun.awt.AWTUtilities;
 import java.awt.Color;
+import java.awt.geom.RoundRectangle2D;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,13 +50,13 @@ public class LoginPage extends javax.swing.JFrame {
         txt_username.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txt_username.setForeground(new java.awt.Color(0, 0, 0));
         txt_username.setBorder(null);
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 300, 40));
+        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 300, 30));
 
         txt_password.setBackground(new java.awt.Color(217, 217, 217));
         txt_password.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txt_password.setForeground(new java.awt.Color(0, 0, 0));
         txt_password.setBorder(null);
-        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 300, 40));
+        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 300, 30));
 
         btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         btn_login.setForeground(new java.awt.Color(255, 255, 255));

@@ -13,6 +13,11 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.sql.*;
+import java.util.Random;
+import koneksi.Connect;
+import MainMenu.Verification;
+        
 /**
  *
  * @author perlengkapan
@@ -46,18 +51,19 @@ public class ForgetPassword extends javax.swing.JFrame {
         txt_username.setBackground(new java.awt.Color(217, 217, 217));
         txt_username.setFont(new java.awt.Font("Poppins", 0, 16)); // NOI18N
         txt_username.setBorder(null);
-        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 310, 40));
+        getContentPane().add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 310, 40));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cari");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 340, 40));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 340, 50));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/layout/Forget Password Page.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -65,35 +71,67 @@ public class ForgetPassword extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        String ToEmail = txt_username.getText();
+        String ToEmail = "";
         String FromEmail = "otpstayclean@gmail.com";
         String FromEmailPassword = "mipnvlwhvzwmszeg";
         String Subjects = "Kode Verifikasi Stay Clean";
-        
+
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
-        
+
         Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication(){
+            protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(FromEmail, FromEmailPassword);
             }
         });
-        
-        try{
+
+        try {
+            //ambil data nama dari database berdasarkan email yang dimasukkan
+            Connection conn = Connect.GetConnection();
+            String sql = "Select * from akun where username = '"+ txt_username.getText() +"' or email = '"+ txt_username.getText() +"'";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet res = pst.executeQuery();
+            res.next();
+            ToEmail = res.getString("email");
+            int id_akun = Integer.parseInt(res.getString("id_akun"));
+            
+            //generate kode
+            Random random = new Random();
+            int number = random.nextInt(99999);
+            
+            //mengirim pesan email
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(FromEmail, "Stay Clean OTP"));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(ToEmail));
             message.setSubject(Subjects);
-            message.setText("");
+            message.setText("Kepada "+ res.getString("nama") +",\n"
+                    + "\n"
+                    + "Untuk menyelesaikan proses reset password, kami memerlukan verifikasi email Anda dengan memasukkan kode verifikasi berikut:\n"
+                    + "\n"
+                    + "Kode Verifikasi anda : "+ number +"\n"
+                    + "\n"
+                    + "Silakan masukkan kode ini pada halaman verifikasi email. Jika Anda tidak melakukan pengaturan ulang password pada aplikasi Stay Clean, mohon abaikan email ini dan jangan berikan kode verifikasi ini pada pihak manapun.\n"
+                    + "\n"
+                    + "Kami mohon untuk tidak memberikan kode verifikasi ini pada orang lain untuk menjaga keamanan akun Anda. Jangan ragu untuk menghubungi kami jika Anda mengalami kesulitan atau memiliki pertanyaan lebih lanjut.\n"
+                    + "\n"
+                    + "Terima kasih atas perhatiannya.\n"
+                    + "\n"
+                    + "Salam Hormat, Stay Clean");
             Transport.send(message);
-        }catch(Exception e){
+            
+            this.setVisible(false);
+            Verification v = new Verification();
+            v.getVerif(number, id_akun);
+            v.setVisible(true);
+            
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+        }        
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**

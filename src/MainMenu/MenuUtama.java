@@ -5,16 +5,30 @@
  */
 
 package MainMenu;
-
+import SubMenu.*;
+import java.awt.Color;
+import utility.PanelRound;
 /**
  *
- * @author perlengkapan
+ * @author rayrayaray
  */
 public class MenuUtama extends javax.swing.JFrame {
 
+    Color activeColor = new Color(0,132,161);
+    Color nonActiveColor = new Color(0,0,0,0);
+    
     /** Creates new form MenuUtama */
     public MenuUtama() {
         initComponents();
+        
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        DashboardFrame df = new DashboardFrame();
+        jDesktopPane1.add(df);
+        df.setVisible(true);
     }
 
     /** This method is called from within the constructor to
@@ -26,21 +40,446 @@ public class MenuUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        MenuBar = new javax.swing.JPanel();
+        Dashboard = new utility.PanelRound();
+        icon_dashboard = new javax.swing.JLabel();
+        btn_dashboard = new javax.swing.JLabel();
+        Transaksi = new utility.PanelRound();
+        icon_transaksi = new javax.swing.JLabel();
+        btn_transaksi = new javax.swing.JLabel();
+        Pelanggan = new utility.PanelRound();
+        icon_pelanggan = new javax.swing.JLabel();
+        btn_pelanggan = new javax.swing.JLabel();
+        DataPaket = new utility.PanelRound();
+        icon_dataPaket = new javax.swing.JLabel();
+        btn_dataPaket = new javax.swing.JLabel();
+        Laporan = new utility.PanelRound();
+        icon_laporan = new javax.swing.JLabel();
+        btn_laporan = new javax.swing.JLabel();
+        Karyawan = new utility.PanelRound();
+        icon_karyawan = new javax.swing.JLabel();
+        btn_karyawan = new javax.swing.JLabel();
+        Keluar = new javax.swing.JPanel();
+        icon_keluar = new javax.swing.JLabel();
+        btn_keluar = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1920, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1110, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 1110, 640));
+
+        MenuBar.setOpaque(false);
+
+        Dashboard.setBackground(new java.awt.Color(0, 132, 161));
+        Dashboard.setRoundBottomRight(60);
+        Dashboard.setRoundTopRight(60);
+        Dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashboardMouseClicked(evt);
+            }
+        });
+        Dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        icon_dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/icon/dashboard.png"))); // NOI18N
+        Dashboard.add(icon_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
+
+        btn_dashboard.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        btn_dashboard.setForeground(new java.awt.Color(255, 255, 255));
+        btn_dashboard.setText("Dashboard");
+        btn_dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_dashboardMouseClicked(evt);
+            }
+        });
+        Dashboard.add(btn_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 150, 50));
+
+        Transaksi.setBackground(new java.awt.Color(0, 132, 161));
+        Transaksi.setRoundBottomRight(60);
+        Transaksi.setRoundTopRight(60);
+        Transaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TransaksiMouseClicked(evt);
+            }
+        });
+        Transaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        icon_transaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/icon/transaksi.png"))); // NOI18N
+        Transaksi.add(icon_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
+
+        btn_transaksi.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        btn_transaksi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_transaksi.setText("Transaksi");
+        btn_transaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_transaksiMouseClicked(evt);
+            }
+        });
+        Transaksi.add(btn_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 150, 50));
+
+        Pelanggan.setBackground(new java.awt.Color(0, 132, 161));
+        Pelanggan.setRoundBottomRight(60);
+        Pelanggan.setRoundTopRight(60);
+        Pelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PelangganMouseClicked(evt);
+            }
+        });
+        Pelanggan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        icon_pelanggan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/icon/pelanggan.png"))); // NOI18N
+        Pelanggan.add(icon_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
+
+        btn_pelanggan.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        btn_pelanggan.setForeground(new java.awt.Color(255, 255, 255));
+        btn_pelanggan.setText("Pelanggan");
+        btn_pelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_pelangganMouseClicked(evt);
+            }
+        });
+        Pelanggan.add(btn_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 150, 50));
+
+        DataPaket.setBackground(new java.awt.Color(0, 132, 161));
+        DataPaket.setRoundBottomRight(60);
+        DataPaket.setRoundTopRight(60);
+        DataPaket.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DataPaketMouseClicked(evt);
+            }
+        });
+        DataPaket.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        icon_dataPaket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/icon/data paket.png"))); // NOI18N
+        DataPaket.add(icon_dataPaket, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
+
+        btn_dataPaket.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        btn_dataPaket.setForeground(new java.awt.Color(255, 255, 255));
+        btn_dataPaket.setText("Data Paket");
+        btn_dataPaket.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_dataPaketMouseClicked(evt);
+            }
+        });
+        DataPaket.add(btn_dataPaket, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 150, 50));
+
+        Laporan.setBackground(new java.awt.Color(0, 132, 161));
+        Laporan.setRoundBottomRight(60);
+        Laporan.setRoundTopRight(60);
+        Laporan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LaporanMouseClicked(evt);
+            }
+        });
+        Laporan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        icon_laporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/icon/laporan.png"))); // NOI18N
+        Laporan.add(icon_laporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
+
+        btn_laporan.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        btn_laporan.setForeground(new java.awt.Color(255, 255, 255));
+        btn_laporan.setText("Laporan");
+        btn_laporan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_laporanMouseClicked(evt);
+            }
+        });
+        Laporan.add(btn_laporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 150, 50));
+
+        Karyawan.setBackground(new java.awt.Color(0, 132, 161));
+        Karyawan.setRoundBottomRight(60);
+        Karyawan.setRoundTopRight(60);
+        Karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KaryawanMouseClicked(evt);
+            }
+        });
+        Karyawan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        icon_karyawan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/icon/karyawan.png"))); // NOI18N
+        Karyawan.add(icon_karyawan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 60));
+
+        btn_karyawan.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        btn_karyawan.setForeground(new java.awt.Color(255, 255, 255));
+        btn_karyawan.setText("Karyawan");
+        btn_karyawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_karyawanMouseClicked(evt);
+            }
+        });
+        Karyawan.add(btn_karyawan, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 150, 50));
+
+        Keluar.setOpaque(false);
+        Keluar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        icon_keluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/icon/logout.png"))); // NOI18N
+        Keluar.add(icon_keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 60));
+
+        btn_keluar.setFont(new java.awt.Font("Poppins", 1, 22)); // NOI18N
+        btn_keluar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_keluar.setText("Keluar");
+        Keluar.add(btn_keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 170, 60));
+
+        javax.swing.GroupLayout MenuBarLayout = new javax.swing.GroupLayout(MenuBar);
+        MenuBar.setLayout(MenuBarLayout);
+        MenuBarLayout.setHorizontalGroup(
+            MenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuBarLayout.createSequentialGroup()
+                .addGroup(MenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Keluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Transaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Pelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DataPaket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Laporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Karyawan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        MenuBarLayout.setVerticalGroup(
+            MenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuBarLayout.createSequentialGroup()
+                .addComponent(Dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Transaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Pelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DataPaket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Laporan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Karyawan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128)
+                .addComponent(Keluar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 250, 750));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/layout/Template Admin.jpg"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void DashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashboardMouseClicked
+        Dashboard.setBackground(activeColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        DashboardFrame df = new DashboardFrame();
+        jDesktopPane1.add(df);
+        df.setVisible(true);
+        
+        
+    }//GEN-LAST:event_DashboardMouseClicked
+
+    private void btn_dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dashboardMouseClicked
+        Dashboard.setBackground(activeColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        DashboardFrame df = new DashboardFrame();
+        jDesktopPane1.add(df);
+        df.setVisible(true);
+    }//GEN-LAST:event_btn_dashboardMouseClicked
+
+    private void TransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TransaksiMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(activeColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        TransaksiFrame tf = new TransaksiFrame();
+        jDesktopPane1.add(tf);
+        tf.setVisible(true);
+    }//GEN-LAST:event_TransaksiMouseClicked
+
+    private void btn_transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_transaksiMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(activeColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        TransaksiFrame tf = new TransaksiFrame();
+        jDesktopPane1.add(tf);
+        tf.setVisible(true);
+    }//GEN-LAST:event_btn_transaksiMouseClicked
+
+    private void PelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PelangganMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(activeColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        PelangganFrame pf = new PelangganFrame();
+        jDesktopPane1.add(pf);
+        pf.setVisible(true);
+    }//GEN-LAST:event_PelangganMouseClicked
+
+    private void btn_pelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pelangganMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(activeColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        PelangganFrame pf = new PelangganFrame();
+        jDesktopPane1.add(pf);
+        pf.setVisible(true);
+    }//GEN-LAST:event_btn_pelangganMouseClicked
+
+    private void DataPaketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DataPaketMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(activeColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        DataPaketFrame dpf = new DataPaketFrame();
+        jDesktopPane1.add(dpf);
+        dpf.setVisible(true);
+    }//GEN-LAST:event_DataPaketMouseClicked
+
+    private void btn_dataPaketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dataPaketMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(activeColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        DataPaketFrame dpf = new DataPaketFrame();
+        jDesktopPane1.add(dpf);
+        dpf.setVisible(true);
+    }//GEN-LAST:event_btn_dataPaketMouseClicked
+
+    private void LaporanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(activeColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        LaporanFrame lf = new LaporanFrame();
+        jDesktopPane1.add(lf);
+        lf.setVisible(true);
+    }//GEN-LAST:event_LaporanMouseClicked
+
+    private void btn_laporanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_laporanMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(activeColor);
+        Karyawan.setBackground(nonActiveColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        LaporanFrame lf = new LaporanFrame();
+        jDesktopPane1.add(lf);
+        lf.setVisible(true);
+    }//GEN-LAST:event_btn_laporanMouseClicked
+
+    private void KaryawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KaryawanMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(activeColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        KaryawanFrame kf = new KaryawanFrame();
+        jDesktopPane1.add(kf);
+        kf.setVisible(true);
+    }//GEN-LAST:event_KaryawanMouseClicked
+
+    private void btn_karyawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_karyawanMouseClicked
+        Dashboard.setBackground(nonActiveColor);
+        Transaksi.setBackground(nonActiveColor);
+        Pelanggan.setBackground(nonActiveColor);
+        DataPaket.setBackground(nonActiveColor);
+        Laporan.setBackground(nonActiveColor);
+        Karyawan.setBackground(activeColor);
+        
+        //tutup internalFrame yang lain
+        jDesktopPane1.removeAll();
+        
+        //buka internalFrame
+        KaryawanFrame kf = new KaryawanFrame();
+        jDesktopPane1.add(kf);
+        kf.setVisible(true);
+    }//GEN-LAST:event_btn_karyawanMouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,6 +517,30 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private utility.PanelRound Dashboard;
+    private utility.PanelRound DataPaket;
+    private utility.PanelRound Karyawan;
+    private javax.swing.JPanel Keluar;
+    private utility.PanelRound Laporan;
+    private javax.swing.JPanel MenuBar;
+    private utility.PanelRound Pelanggan;
+    private utility.PanelRound Transaksi;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel btn_dashboard;
+    private javax.swing.JLabel btn_dataPaket;
+    private javax.swing.JLabel btn_karyawan;
+    private javax.swing.JLabel btn_keluar;
+    private javax.swing.JLabel btn_laporan;
+    private javax.swing.JLabel btn_pelanggan;
+    private javax.swing.JLabel btn_transaksi;
+    private javax.swing.JLabel icon_dashboard;
+    private javax.swing.JLabel icon_dataPaket;
+    private javax.swing.JLabel icon_karyawan;
+    private javax.swing.JLabel icon_keluar;
+    private javax.swing.JLabel icon_laporan;
+    private javax.swing.JLabel icon_pelanggan;
+    private javax.swing.JLabel icon_transaksi;
+    private javax.swing.JDesktopPane jDesktopPane1;
     // End of variables declaration//GEN-END:variables
 
 }
