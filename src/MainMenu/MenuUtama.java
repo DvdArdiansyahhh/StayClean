@@ -28,6 +28,7 @@ public class MenuUtama extends javax.swing.JFrame {
         Karyawan.setBackground(nonActiveColor);
         DashboardFrame df = new DashboardFrame();
         jDesktopPane1.add(df);
+        
         df.setVisible(true);
     }
 
