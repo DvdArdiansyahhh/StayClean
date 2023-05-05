@@ -7,7 +7,6 @@ package MainMenu;
 
 import koneksi.Connect;
 import com.mysql.cj.jdbc.Driver;
-import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.*;
